@@ -18,7 +18,7 @@ interface props {
 }
 export default function Section({ name, label, size, action }: props) {
   return (
-    <View className="flex flex-row justify-between mt-4 items-center">
+    <View className="flex flex-row justify-between mt-8 items-center">
       <Text className={`font-bold ${size}`}>{name}</Text>
       <Pressable onPress={action}>
         <Text>{label}</Text>
