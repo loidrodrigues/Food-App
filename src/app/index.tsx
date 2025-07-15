@@ -2,6 +2,7 @@ import constants from "expo-constants";
 import { ScrollView, View } from "react-native";
 import Banner from "../components/banner";
 import Header from "../components/header";
+import List from "../components/list";
 import Restaurants from "../components/restaurants";
 import Search from "../components/search";
 import Section from "../components/section";
@@ -42,6 +43,7 @@ export default function Index() {
         action={() => console.log("ver tudo")}
         size="text-2xl"
       />
+      <List />
     </ScrollView>
   );
 }

@@ -17,7 +17,7 @@ export default function TrandFood() {
 
   useEffect(() => {
     async function getFood() {
-      const response = await fetch("http://200.135.76.98:3000/foods");
+      const response = await fetch("http://192.168.3.36:3000/foods");
       const data = await response.json();
       setData(data);
     }

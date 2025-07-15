@@ -1,30 +1,30 @@
 import { useEffect, useState } from "react";
 import { FlatList } from "react-native";
-import RestaurantItem from "./restaurants";
+import Items from "./Items";
 
 export interface RestaurantesProps {
   id: string;
   name: string;
   image: string;
 }
-export default function Restaurants() {
-  const [restaurant, setRestaurant] = useState<RestaurantesProps[]>([]);
+export default function List() {
+  const [data, setData] = useState<RestaurantesProps[]>();
+
   useEffect(() => {
     async function getRestaurants() {
       const response = await fetch("http://192.168.3.36:3000/restaurants");
       const data = await response.json();
-      setRestaurant(data);
+      setData(data);
     }
     getRestaurants();
   });
-
   return (
     <FlatList
-      data={restaurant}
-      horizontal={true}
+      data={data}
       showsHorizontalScrollIndicator={false}
-      contentContainerStyle={{ gap: 18 }}
-      renderItem={({ item }) => <RestaurantItem restaurant={item} />}
+      horizontal={false}
+      contentContainerStyle={{ gap: 16 }}
+      renderItem={({ item }) => <Items item={item} />}
     />
   );
 }
